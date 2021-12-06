@@ -1,0 +1,20 @@
+{% extends 'player/base.html' %}
+
+{% block content %}
+<a href="{% url 'new_game' %}" class="btn">New Game</a>
+<div class="row">
+{% for club in clubs %}
+	<a href="{% url 'club_detail' club.pk %}">
+	<div class="col s12">
+		<div class="card pink lighten-3">
+			<div class="card-content white-text">
+				<p>이름 : {{club.name}}</p>
+                <p>오픈일 : {{club.open_date}}</p>
+                <p>주소 : {{club.address}}</p>
+			</div>
+		</div>
+	</div>
+	</a>
+{% endfor %}
+</div>
+{% endblock %}

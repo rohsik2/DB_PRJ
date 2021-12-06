@@ -1,0 +1,24 @@
+{% extends 'player/base.html' %}
+
+
+{% block content %}
+<h3>{{club.name}}</h3>
+<p>address : {{club.address}}</p>
+<p>recent games</p>
+<div class="row">
+{% for competition in competitions %}
+	<a href="{% url 'competition_detail' competition.pk %}">
+	<div class="col s12">
+		<div class="card pink lighten-3">
+			<div class="card-content white-text">
+                <p>{{competition.name}}</p>
+                <p>{{competition.winner.name}}</p>
+                <p>{{competition.start_date}}</p>
+			</div>
+		</div>
+	</div>
+	</a>
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'player/base.html' %}
+
+            
+{% block content %}
+
+<h2>{{competition.name}}</h2>
+<a href="{% url 'competition_list' %}" class="btn">리스트로 돌아가기</a>
+<p>개최 일시 : {{competition.start_date}}</p>
+<p>우승자 : {{competition.winner.name}}</p>
+<p>개최 구장 : {{competition.club.name}}</p>
+<div class="row">
+{% for game in games %}
+	<div class="col s6 m4">
+		<div class="card blue-grey darken-1">
+			<span></span>
+			<div class="card-content white-text">
+				<a href="{% url 'player_detail' game.winner.pk %}"><p>winner : {{game.winner.name}}</p></a>
+				<a href="{% url 'player_detail' game.loser.pk %}"><p>loser : {{game.loser.name}}</p></a>
+				<p>date : {{game.played_date}}</p>
+			</div>
+		</div>
+	</div>
+{% endfor %}
+</div>
+<p>players</p>
+{% for player in players %}
+	{{player.name}}
+{% endfor %}
+{% endblock %}

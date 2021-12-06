@@ -1,0 +1,22 @@
+{% extends 'player/base.html' %}
+
+
+{% block content %}
+<a href="{% url 'new_player' %}" class="btn">Add Player</a>
+<div class="row">
+{% for player in players %}
+	<a href="{% url 'player_detail' player.pk %}">
+	<div class="col s12">
+		<div class="card pink lighten-3">
+			<div class="card-content white-text">
+                <h9>{{player.name}}</h9>
+                <p>rating : {{player.rating}}</p>
+                <p>age : {{player.age}}</p>
+			</div>
+		</div>
+	</div>
+	</a>
+{% endfor %}
+</div>
+
+{% endblock %}

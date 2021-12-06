@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+  <html lang='ko'>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+    <style type="text/css">
+        select {display :  block}
+    </style>
+<body>
+    <nav class="nav-extended">
+      <div class="nav-wrapper db">
+        <!-- Dropdown Structure -->
+        <div class="nav-header de center">
+          <h1>Billiard System</h1>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+        <div class = "header center">
+            <a href="{% url 'competition_list' %}" class="btn">대회목록</a>
+            <a href="{% url 'game_list' %}" class="btn">최근게임</a>
+            <a href="{% url 'player_list' %}"class="btn">플레이어 랭킹</a>
+            <a href="{% url 'club_list' %}"class="btn">당구장 목록</a>
+        </div>
+        <div class = "content">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <div class="footer">
+            <h9>
+                made by 노현욱
+            </h9>
+        </div>
+    </div>]
+</body>
+</html>

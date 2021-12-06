@@ -1,0 +1,19 @@
+{% extends 'player/base.html' %}
+
+            
+{% block content %}
+<div class="row">
+{% for competition in competitions %}
+	<div class="col s6 m4">
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<a href="{% url 'competition_detail' competition.pk %}"><span class="card-title">{{competition.name}}</span></a>
+				<p>개최 일시 : {{competition.start_date}}</p>
+				<p>우승자 : {{competition.winner.name}}</p>
+				<p>개최 구장 : {{competition.club.name}}</p>
+			</div>
+		</div>
+	</div>
+{% endfor %}
+</div>
+{% endblock %}

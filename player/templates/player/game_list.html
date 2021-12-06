@@ -1,0 +1,21 @@
+{% extends 'player/base.html' %}
+
+            
+{% block content %}
+<a href="{% url 'new_game' %}" class="btn">New Game</a>
+{% for game in games %}
+	<div class="col s6 m4 l3">
+		<div class="card pink lighten-3">
+			<div class="card-content white-text">
+				<p>승자 : {{game.winner.name}}</p>
+				<p>패자 : {{game.loser.name}}</p>
+                <p>Rating : {{game.average_rating}}</p>
+				{% if game.competition %}
+					<p>대회 : {{game.competition}}</p>
+				{% endif %}
+				<p>날짜 : {{game.played_date}}</p>
+			</div>
+		</div>
+	</div>
+{% endfor %}
+{% endblock %}
