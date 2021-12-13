@@ -10,7 +10,7 @@ urlpatterns = [
     path('player', views.player_list, name='player_list'),
     path('player/<int:pk>', views.player, name='player_detail'),
     path('player/new', views.new_player, name='new_player'),
-
+    path('player/search/<str:name>', views.player_search, name='search_player'),
     path('game', views.game_list, name='game_list'),
     path('game/new', views.new_game, name='new_game'),
 

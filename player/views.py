@@ -92,3 +92,8 @@ def club_detail(request, pk):
     club = get_object_or_404(BilliardClub, pk=pk)
     competitions = Competition.objects.filter(club=club)
     return render(request, 'player/club.html', {'club': club, 'competitions': competitions})
+
+
+def player_search(request, name):
+    players = Player.objects.filter(name__contains=name).order_by('-rating')
+    return render(request, 'player/player_list.html', {'players': players})

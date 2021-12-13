@@ -3,6 +3,7 @@
 
 {% block content %}
 <a href="{% url 'new_player' %}" class="btn">Add Player</a>
+
 <div class="row">
 {% for player in players %}
 	<a href="{% url 'player_detail' player.pk %}">
